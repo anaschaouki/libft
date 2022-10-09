@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 19:10:41 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/08 17:22:52 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/09 18:20:51 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/09 19:12:11 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 
-char *ft_strchr(const char *str, int c)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	int i;
+	size_t i;
+	const char *string;
+	
 	i = 0;
-	while (str[i] != '\0')
+	string = str;
+	while (string[i] != '\0' && c != '\0' && i < n)
 	{
-		if(str[i] == c)
-			return ((char *)&str[i]);
+		if (string[i] == c)
+			return ((char *)&string[i]);
 		i++;
-	}
-	if (str == '\0')
-	{
-		str = "\0";
-		return ((char *)str);
 	}
 	return (0);
 }
 
 int main()
 {
-	char string[] = "";
-	char s = 'e';
-	printf("%s\n",ft_strchr(string,s));
-	printf("%s",strchr(string,s));
+	char str[] = "hello";
+	char c = 'o';
+	int size = 4;
+	printf("%s\n",ft_memchr(str,c,size));
+	printf("%s",memchr(str,c,size));
 	return (0);
 }

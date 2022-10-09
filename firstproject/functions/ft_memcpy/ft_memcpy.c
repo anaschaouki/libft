@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 11:44:50 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/09 12:49:08 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/09 14:19:38 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/09 16:48:36 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,33 @@
 #include <stdio.h>
 #include <string.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t i;
-	size_t j;
+	const char *srca;
+	char *desta;
 
 	i = 0;
-	j = 0;
+	srca = src;
+	desta = dest;
 
-	if (needle[j] == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0' && i < len)
+	while ( i < n)
 	{
-		while ((haystack[i + j] == needle[j] && needle[j] != '\0'))
-			j++;
-		if (needle[j] == '\0')
-			return((char *)&haystack[i]);
-		j = 0;
+		desta[i] = srca[i];
 		i++;
 	}
-	return(0);
+	desta[i] = '\0';
+	
+	return (dest);
 }
+
 int main()
 {
-	char string[] = "helloo";
-	char find[] = "o";
-	size_t size = 52;
-	printf("%s\n",ft_strnstr(string,find,size));
-	printf("%s",strnstr(string,find,size));
+	char src[] = "hello";
+	char dest[] = "";
+	int size = 5;
+	ft_memcpy(dest,src,size);
+	printf("%s",dest);
 	return (0);
 }
-	
 
