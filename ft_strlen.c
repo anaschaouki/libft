@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/06 13:07:59 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/07 14:13:34 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int	ft_tolower(int c)
+size_t	ft_strlen(const char *s)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	size_t	i;
+	i = 0;
+	while (s[i] != '\0')
+	   i++;
+	return(i);
 }
 
 int main()
 {
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	char string[] = "hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo";
+	printf("%zu__%zu",ft_strlen(string),strlen(string));
 	return (0);
 }
-

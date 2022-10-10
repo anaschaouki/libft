@@ -6,11 +6,11 @@
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Updated: 2022/10/10 21:40:34 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 #include <stdio.h>
 #include <ctype.h>
 
@@ -23,7 +23,7 @@ int	ft_tolower(int c)
 
 int main()
 {
-	char s = 'X';
+	char s = 'x';
 	printf("%c___%c",ft_tolower(s),tolower(s));
 	return (0);
 }

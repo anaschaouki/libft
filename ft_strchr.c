@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/07 19:10:41 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/08 17:22:52 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int	ft_tolower(int c)
+char *ft_strchr(const char *str, int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	int i;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if(str[i] == c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	if (str == '\0')
+	{
+		str = "\0";
+		return ((char *)str);
+	}
+	return (0);
 }
 
 int main()
 {
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	char string[] = "";
+	char s = 'e';
+	printf("%s\n",ft_strchr(string,s));
+	printf("%s",strchr(string,s));
 	return (0);
 }
-

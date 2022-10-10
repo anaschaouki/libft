@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/06 09:59:02 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/06 10:56:14 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-#include <ctype.h>
 
-int	ft_tolower(int c)
+int	ft_isalpha(int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
-}
-
-int main()
-{
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	else
 	return (0);
 }
-

@@ -1,50 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 15:44:49 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 19:31:53 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/09 21:43:54 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/10 15:05:23 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+char *ft_strdup(const char *s, size_t n)
 {
 	size_t i;
-	const char *src1;
-	char *dest1;
-	char *temp;
+	const char *str;
+	char *dest;
+	char *memal;
 
 	i = 0;
-	src1 = src;
-	dest1 = dest;
-    temp = "";	
-	temp = memcpy(temp,src1,n);
+	str = s;
+	dest = "";
+	memal = (char *) malloc(n * sizeof(char) + 1);
+	if (memal == NULL)
+		return(0);
+
 	while (i < n)
 	{
-		dest1[i] = temp[i];
+		memal[i] = str[i];
 		i++;
 	}
-	dest1[i] = '\0';
-	return (dest);
+	memal[i] = '\0'; 
+	return ((char *)memal);
 }
 
 int main()
 {
-	char *str = "hello";
-	char dest[] = "";
-	int len = 3;
-	ft_memmove(dest,str,len);
-	printf("%s",dest);
-	char *str1 = "hello";
-	char dest1[] = "";
-	int len1 = 3;
-	memmove(dest1,str1,len1);
-	printf("%s",dest1);
+	char str[] = "hello";
+	int size = 7;
+	printf("%s\n",ft_strdup(str,size));
+	char str1[] = "hello";
+	int size1 = 7;
+	printf("%s",ft_strdup(str1,size1));
 	return (0);
 }

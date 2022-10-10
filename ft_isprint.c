@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/07 13:08:37 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/07 14:10:57 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int	ft_tolower(int c)
+int	ft_isprint(int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	if (c >= 32 && c <= 127)
+		return (1);
+	else
+		return (0);
 }
 
-int main()
+int	main()
 {
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	char s = '~';
+	printf("%d__%d",ft_isprint(s),isprint(s));
 	return (0);
 }
-

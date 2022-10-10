@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/07 14:18:11 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/09 13:34:35 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int	ft_tolower(int c)
+void *ft_memset(void *s, int c, size_t n)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	size_t i;
+	char *str = s;
+
+	i = 0;
+	while(i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (s);
 }
 
 int main()
 {
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	char str[] = "halloooo";
+	char rep = 'e';
+	size_t size = 8;
+	ft_memset(str,rep,size);
+	printf("%s",str);
 	return (0);
 }
+
 

@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/09 18:20:51 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/09 19:12:11 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int	ft_tolower(int c)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	size_t i;
+	const char *string;
+	
+	i = 0;
+	string = str;
+	while (string[i] != '\0' && c != '\0' && i < n)
+	{
+		if (string[i] == c)
+			return ((char *)&string[i]);
+		i++;
+	}
+	return (0);
 }
 
 int main()
 {
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	char str[] = "hello";
+	char c = 'o';
+	int size = 4;
+	printf("%s\n",ft_memchr(str,c,size));
+	printf("%s",memchr(str,c,size));
 	return (0);
 }
-

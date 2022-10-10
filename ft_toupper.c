@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/06 19:34:53 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/06 19:58:18 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 #include <stdio.h>
 #include <ctype.h>
 
-int	ft_tolower(int c)
+unsigned char	ft_toupper(unsigned char c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	 if(c >= 97 && c <= 122)
+		 c -= 32;
+	 return(c);
 }
 
 int main()
 {
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	char s = 'L';
+	printf("%c___%c",ft_toupper(s),toupper(s));
 	return (0);
 }
-

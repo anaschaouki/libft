@@ -1,50 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 15:44:49 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 19:31:53 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/08 11:44:50 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/09 12:49:08 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t i;
-	const char *src1;
-	char *dest1;
-	char *temp;
+	size_t j;
 
 	i = 0;
-	src1 = src;
-	dest1 = dest;
-    temp = "";	
-	temp = memcpy(temp,src1,n);
-	while (i < n)
+	j = 0;
+
+	if (needle[j] == '\0')
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && i < len)
 	{
-		dest1[i] = temp[i];
+		while ((haystack[i + j] == needle[j] && needle[j] != '\0'))
+			j++;
+		if (needle[j] == '\0')
+			return((char *)&haystack[i]);
+		j = 0;
 		i++;
 	}
-	dest1[i] = '\0';
-	return (dest);
+	return(0);
 }
-
 int main()
 {
-	char *str = "hello";
-	char dest[] = "";
-	int len = 3;
-	ft_memmove(dest,str,len);
-	printf("%s",dest);
-	char *str1 = "hello";
-	char dest1[] = "";
-	int len1 = 3;
-	memmove(dest1,str1,len1);
-	printf("%s",dest1);
+	char string[] = "helloo";
+	char find[] = "o";
+	size_t size = 52;
+	printf("%s\n",ft_strnstr(string,find,size));
+	printf("%s",strnstr(string,find,size));
 	return (0);
 }
+	
+

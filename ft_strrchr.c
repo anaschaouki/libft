@@ -1,50 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 15:44:49 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 19:31:53 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/07 20:44:00 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/07 22:36:25 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+int	ft_strlen(const char *str)
 {
-	size_t i;
-	const char *src1;
-	char *dest1;
-	char *temp;
-
+	int i;
 	i = 0;
-	src1 = src;
-	dest1 = dest;
-    temp = "";	
-	temp = memcpy(temp,src1,n);
-	while (i < n)
-	{
-		dest1[i] = temp[i];
+	while (str[i] != '\0')
 		i++;
-	}
-	dest1[i] = '\0';
-	return (dest);
+	return (i);
 }
 
-int main()
+char *ft_strrchr(const char *string, int c)
 {
-	char *str = "hello";
-	char dest[] = "";
-	int len = 3;
-	ft_memmove(dest,str,len);
-	printf("%s",dest);
-	char *str1 = "hello";
-	char dest1[] = "";
-	int len1 = 3;
-	memmove(dest1,str1,len1);
-	printf("%s",dest1);
+	int i;
+	i = ft_strlen(string) - 1;
+	while (string[i] > 0)
+	{
+			if(string[i] == c)
+			{
+				return ((char *)&string[i]);
+			}
+			i--;
+	}
+	if (c == '\0')
+	{
+		string = "\0";
+		return ((char *)string);
+	}
 	return (0);
 }
+int main()
+{
+	char string[] = "helleoo";
+	char s = 'h';
+	printf("%s\n",ft_strrchr(string,s));
+	printf("%s",strrchr(string,s));
+	return (0);
+}
+			
+

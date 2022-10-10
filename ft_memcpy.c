@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:52:48 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 21:43:38 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/09 14:19:38 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/09 16:48:36 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int	ft_tolower(int c)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	size_t i;
+	const char *srca;
+	char *desta;
+
+	i = 0;
+	srca = src;
+	desta = dest;
+
+	while ( i < n)
+	{
+		desta[i] = srca[i];
+		i++;
+	}
+	desta[i] = '\0';
+	
+	return (dest);
 }
 
 int main()
 {
-	char s = 'X';
-	printf("%c___%c",ft_tolower(s),tolower(s));
+	char src[] = "hello";
+	char dest[] = "";
+	int size = 5;
+	ft_memcpy(dest,src,size);
+	printf("%s",dest);
 	return (0);
 }
 
