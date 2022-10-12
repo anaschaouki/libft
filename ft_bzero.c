@@ -6,40 +6,24 @@
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 13:36:38 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/10 17:14:49 by anchaouk         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:25:23 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
-	char *str;
-	int null;
+	size_t	i;
+	int		null;
+	char	*str;
 
 	i = 0;
-	str = s;
 	null = '\0';
-
+	str = s;
 	while (i < n)
 	{
 		str[i] = null;
 		i++;
 	}
-}
-
-int main()
-{
-	char str[] = "hello";
-	int	n = 3;
-	ft_bzero(str,n);
-	printf("%s\n",str);
-	char str1[] = "hello";
-	int n1 = 3;
-	bzero(str1,n1);
-	printf("%s",str1);
-	return (0);
 }

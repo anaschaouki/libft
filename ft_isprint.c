@@ -6,13 +6,10 @@
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 13:08:37 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/07 14:10:57 by anchaouk         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:28:23 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {
@@ -22,9 +19,9 @@ int	ft_isprint(int c)
 		return (0);
 }
 
-int	main()
-{
-	char s = '~';
-	printf("%d__%d",ft_isprint(s),isprint(s));
-	return (0);
-}
+// int	main()
+// {
+// 	char s = '~';
+// 	printf("%d__%d",ft_isprint(s),isprint(s));
+// 	return (0);
+// }

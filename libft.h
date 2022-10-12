@@ -4,7 +4,11 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <ctype.h>
+void *ft_memmove(void *dest, const void *src, size_t n);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t  ft_strlen(const char *s);
 char    *ft_strchr(const char *str, int c);

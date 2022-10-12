@@ -6,34 +6,36 @@
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 20:44:00 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/07 22:36:25 by anchaouk         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:16:05 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include "libft.h"*/
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
+
 	i = 0;
 	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
-char *ft_strrchr(const char *string, int c)
+char	*ft_strrchr(const char *string, int c)
 {
-	int i;
+	int	i;
+
 	i = ft_strlen(string) - 1;
 	while (string[i] > 0)
 	{
-			if(string[i] == c)
-			{
-				return ((char *)&string[i]);
-			}
-			i--;
+		if (string[i] == c)
+		{
+			return ((char *)&string[i]);
+		}
+		i--;
 	}
 	if (c == '\0')
 	{
@@ -45,10 +47,8 @@ char *ft_strrchr(const char *string, int c)
 int main()
 {
 	char string[] = "helleoo";
-	char s = 'h';
+	char s = 'e';
 	printf("%s\n",ft_strrchr(string,s));
 	printf("%s",strrchr(string,s));
 	return (0);
 }
-			
-

@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_puthar_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 19:10:41 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:39:29 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/11 19:17:11 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/11 19:22:11 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
-			return ((char *)&str[i]);
-		i++;
-	}
-	if (str == '\0')
-	{
-		str = "\0";
-		return ((char *)str);
-	}
-	return (0);
+	write (fd, &c, 1);
+	write (1, "\n", 1);
 }
-// int main()
-// {
-// 	char string[] = "";
-// 	char s = 'e';
-// 	printf("%s\n",ft_strchr(string,s));
-// 	printf("%s",strchr(string,s));
-// 	return (0);
-// }
