@@ -2,7 +2,6 @@
 
 int main()
 {
-    char str[] = "hello";
-    printf("%zu",ft_strlen(str));
+    ft_putnbr_fd(666,1);
     return (0);
 }

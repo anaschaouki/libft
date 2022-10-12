@@ -1,18 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthar_fd.c                                     :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 19:17:11 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 19:22:11 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/12 15:48:59 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/12 18:31:15 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	write (fd, &c, 1);
+	size_t		i;
+	const char	*str;
+	char		*ptr;
+
+	i = 0;
+	str = &s[start];
+	ptr = (char *)malloc(len *sizeof(char) + 1);
+	while (i < len)
+	{
+		ptr[i] = str[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+int main()
+{
+	char str[] = "hello there mate";
+	int n = 7;
+	int l = 4;
+	printf("%s",ft_substr(str,n,l));
+	return (0);
 }
