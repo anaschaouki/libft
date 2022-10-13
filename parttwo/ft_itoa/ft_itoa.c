@@ -15,59 +15,67 @@
 #include <stdlib.h>
 #include <string.h>
 
-int	length(int n)
-{
-	int i = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		i++;
-	}
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-	while (i < n)
-	{
-		n / 10;
-		i++;
-	}
-	return (i);
+int     length(int n)
+{
+        int i = 0;
+        if (n < 0)
+        {
+                n = n * -1;
+                i++;
+        }
+
+        while (n != 0)
+        {
+                n /= 10;
+                i++;
+        }
+        return (i);
 }
 
-char	*convert(int n, int len)
+char    *convert(int n, int len)
 {
-	int i = 0;
-	char *alloc = (char *)malloc(sizeof(char) *len);
+        int i = 0;
+        char *alloc = (char *)malloc(sizeof(char) *len);
+    while (n != 0)
+    {
+        if (n > 0 && n < 9)
+        {
+                alloc[i] = n + 48;
+                i++;
+        }
+        if (n > 9)
+        {
+                int res= n % 10;
+                alloc[i] = res + 48;
+                i++;
+                n /= 10;
 
-	if (n > 0 && n < 9)
-	{
-		alloc[i] = n;
-		i++;
-	}
-	if (n > 9)
-	{
-		convert(n / 10);
-		convert(n % 10);
-	}
-
-	return (alloc);
-}
+        }
+    }
+        return (alloc);
+  }
 
 
 
 
-char	*ft_itoa(int n)
+char    *ft_itoa(int n)
 {
-	size_t	len;
-	char	*alloc;
-	size_t i;
+        size_t  len;
+        size_t i;
 
-	len = length(n);
-	char *str = convert(n, len);
-	return (alloc);
+        len = length(n);
+        char *str = convert(n, len);
+        return (str);
 }
 
 int main()
 {
-	int num = 123;
-	printf("%s",ft_itoa(num));
-	return (0);
+        int num = 123;
+        printf("%s",ft_itoa(num));
+        return (0);
 }
