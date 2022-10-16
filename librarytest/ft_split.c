@@ -22,12 +22,11 @@ int    count(char const *s, char c)
     {
         if (s[i] != c && s[i - 1] == c)
             count++;
-        
         i++;
     }
     return (count);
 }
-char *elgatto(char const *s, char c, int wordcount)
+char **elgatto(char const *s, char c, int wordcount)
 {
     int i;
     int b;
@@ -42,13 +41,14 @@ char *elgatto(char const *s, char c, int wordcount)
     start = -1;
     finish = -1;
     array = (char **)malloc(sizeof(char *) * (wordcount + 1));
-
+    if (!array)
+        return (0);
     while (s[i] != '\0')
     {
         if (s[i] != c && start == -1)
             start = i;
         
-        else if (s[b] != c && finish == -1 && s[b + 1] == c)
+        if ((s[b] != c && finish == -1 && s[b + 1] == c) ||  s[b + 1] == '\0')
             finish = b + 1;
         
         if (start != -1 && finish != -1)
@@ -65,20 +65,22 @@ char *elgatto(char const *s, char c, int wordcount)
     return(array);
 }
  
-char *ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
+    if(!s)
+        return(0);
     size_t wordcount;
 	char	**res;
     wordcount = count(s,c);
-    elgatto(s, c, wordcount);
+    res = elgatto(s, c, wordcount);
 	return (res);
 }
 
-int main()
-{
-    char *str = " hello world ";
-    char c = ' ';
-	char **array = ft_split(str, c);
-    printf("%s\n%s", array[0], array[1]);
-    return (0);
-}
+//  int main()
+//  {
+//      char *str = "  ";
+//      char c = ' ';
+//  	char **array = ft_split(str, c);
+//      printf("%s\n%s\n%s\n%s\n%s", array[0], array[1], array[2], array[3], array[4]);
+//      return (0);
+//  }

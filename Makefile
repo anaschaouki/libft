@@ -8,8 +8,11 @@ object :
 	clang -c -Wall -Wextra -Werror ft_strlcpy.c ft_strlen.c ft_strlcpy.c
 	clang -c -Wall -Wextra -Werror ft_strncmp.c ft_strnstr.c ft_strrchr.c
 	clang -c -Wall -Wextra -Werror ft_tolower.c ft_toupper.c ft_putnbr_fd.c ft_putendl_fd.c 
+	clang -c -Wall -Wextra -Werror ft_split.c ft_substr.c ft_strtrim.c ft_strjoing.c
 libmake:
-	ar rcs libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_putnbr_fd.o ft_putendl_fd.o ft_isdigit.o ft_isprint.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putstr_fd.c ft_strlcpy.o ft_strlen.o ft_strlcpy.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o
+	ar rcs libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_putnbr_fd.o ft_putendl_fd.o ft_isdigit.o ft_isprint.o \
+	ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putstr_fd.c ft_strlcpy.o ft_strlen.o ft_strlcpy.o ft_strncmp.o \
+	ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_split.o f_substr.o ft_strtrim.o ft_strjoing.o
 main:
 	clang -Wall -Wextra -Werror libft.a main.c
 clear:

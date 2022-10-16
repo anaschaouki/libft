@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
 int     length(int n)
 {
@@ -69,9 +66,9 @@ char    *ft_itoa(int n)
         return (str);
 }
 
-int main()
-{
-        int num = -123;
-        printf("%s",ft_itoa(num));
-        return (0);
-}
+// int main()
+// {
+//         int num = -123;
+//         printf("%s",ft_itoa(num));
+//         return (0);
+// }

@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 14:18:11 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:38:08 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/10 15:06:39 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/11 15:24:59 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_calloc(size_t num, size_t size)
 {
 	size_t	i;
-	char	*str;
+	void	*ptr;
 
 	i = 0;
-	str = s;
-	while (i < n)
-	{
-		str[i] = c;
-		i++;
-	}
-	return (s);
+	ptr = malloc(num * size);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, num);
+	return (ptr);
 }
 
- int main()
- {
- 	char str[] = "hallooooooooooo";
- 	char rep = '3';
- 	size_t size = 15;
- 	ft_memset(str,rep,size);
-	printf("%s",str);
- 	return (0);
-}
+// int main()
+// {
+// 	int i;
+// 	i = 0;
+//     int *ptr;
+//     ptr = ft_calloc(5,sizeof(char));
+// 	while (i < 5)
+// 	{
+// 		printf("%d",ptr[i]);
+// 		i++;
+// 	}
+//     return (0);
+// }

@@ -27,7 +27,7 @@ int    count(char const *s, char c)
     }
     return (count);
 }
-char *elgatto(char const *s, char c, int wordcount)
+char **elgatto(char const *s, char c, int wordcount)
 {
     int i;
     int b;
@@ -48,7 +48,7 @@ char *elgatto(char const *s, char c, int wordcount)
         if (s[i] != c && start == -1)
             start = i;
         
-        else if (s[b] != c && finish == -1 && s[b + 1] == c)
+        if ((s[b] != c && finish == -1 && s[b + 1] == c) ||  s[b + 1] == '\0')
             finish = b + 1;
         
         if (start != -1 && finish != -1)
@@ -65,20 +65,20 @@ char *elgatto(char const *s, char c, int wordcount)
     return(array);
 }
  
-char *ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
     size_t wordcount;
 	char	**res;
     wordcount = count(s,c);
-    elgatto(s, c, wordcount);
+    res = elgatto(s, c, wordcount);
 	return (res);
 }
 
-int main()
-{
-    char *str = " hello world ";
-    char c = ' ';
-	char **array = ft_split(str, c);
-    printf("%s\n%s", array[0], array[1]);
-    return (0);
-}
+// int main()
+// {
+//     char *str = "           olol";
+//     char c = ' ';
+// 	char **array = ft_split(str, c);
+//     printf("%s\n%s", array[0], array[1]);
+//     return (0);
+// }

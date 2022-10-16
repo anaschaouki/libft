@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 14:18:11 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:38:08 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/07 20:44:00 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/11 21:16:05 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+
+char	*ft_strrchr(const char *string, int c)
 {
-	size_t	i;
-	char	*str;
+	int	i;
 
-	i = 0;
-	str = s;
-	while (i < n)
+	i = ft_strlen(string) - 1;
+	while (string[i] > 0)
 	{
-		str[i] = c;
-		i++;
+		if (string[i] == c)
+		{
+			return ((char *)&string[i]);
+		}
+		i--;
 	}
-	return (s);
+	if (c == '\0')
+	{
+		string = "\0";
+		return ((char *)string);
+	}
+	return (0);
 }
-
- int main()
- {
- 	char str[] = "hallooooooooooo";
- 	char rep = '3';
- 	size_t size = 15;
- 	ft_memset(str,rep,size);
-	printf("%s",str);
- 	return (0);
-}
+// int main()
+// {
+// 	char string[] = "helleoo";
+// 	char s = 'e';
+// 	printf("%s\n",ft_strrchr(string,s));
+// 	printf("%s",strrchr(string,s));
+// 	return (0);
+// }

@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 14:18:11 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:38:08 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/09 15:44:49 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/10 19:31:53 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void *ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	char	*str;
+	size_t i;
+	const char *src1;
+	char *dest1;
+	char *temp;
 
 	i = 0;
-	str = s;
+	src1 = src;
+	dest1 = dest;
+    temp = "";	
+	temp = ft_memcpy(temp,src1,n);
 	while (i < n)
 	{
-		str[i] = c;
+		dest1[n - 1] = temp[n - 1];
 		i++;
+		n--;
 	}
-	return (s);
+	dest1[i] = '\0';
+	return (dest);
 }
 
- int main()
- {
- 	char str[] = "hallooooooooooo";
- 	char rep = '3';
- 	size_t size = 15;
- 	ft_memset(str,rep,size);
-	printf("%s",str);
- 	return (0);
-}
+// int main()
+// {
+// 	char *str = "hello";
+// 	char dest[] = "";
+// 	int len = 3;
+// 	ft_memmove(dest,str,len);
+// 	return (0);
+// }

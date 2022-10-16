@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 14:18:11 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:38:08 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/11 19:25:01 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/12 15:26:48 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	char	*str;
-
-	i = 0;
-	str = s;
-	while (i < n)
+	if (n == -2147483648)
 	{
-		str[i] = c;
-		i++;
+		write(fd, "-2147483648", 11);
+		return;
 	}
-	return (s);
-}
-
- int main()
- {
- 	char str[] = "hallooooooooooo";
- 	char rep = '3';
- 	size_t size = 15;
- 	ft_memset(str,rep,size);
-	printf("%s",str);
- 	return (0);
+	if (n < 0)
+	{
+		ft_putchar_fd('-',fd);
+		ft_putchar_fd(n * -1,fd);
+	}
+	if (n >= 0 && n <= 9)
+		ft_putchar_fd(n + '0',fd);
+	else
+	{
+		ft_putnbr_fd(n / 10,fd);
+		ft_putnbr_fd(n % 10,fd);
+	}
 }

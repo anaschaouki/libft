@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 14:18:11 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:38:08 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/12 15:48:59 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/12 18:31:15 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	char	*str;
+	size_t		i;
+	const char	*str;
+	char		*ptr;
 
 	i = 0;
-	str = s;
-	while (i < n)
+	str = &s[start];
+	ptr = (char *)malloc(len *sizeof(char) + 1);
+	while (i < len)
 	{
-		str[i] = c;
+		ptr[i] = str[i];
 		i++;
 	}
-	return (s);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
- int main()
- {
- 	char str[] = "hallooooooooooo";
- 	char rep = '3';
- 	size_t size = 15;
- 	ft_memset(str,rep,size);
-	printf("%s",str);
- 	return (0);
-}
+/*int main()
+{
+	char str[] = "hello there mate";
+	int n = 7;
+	int l = 4;
+	printf("%s",ft_substr(str,n,l));
+	return (0);
+}*/

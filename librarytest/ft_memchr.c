@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 14:18:11 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:38:08 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/09 18:20:51 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/11 15:31:06 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*str;
+	if (!n)
+		return(0);
+	size_t		i;
+	const char	*string;
 
 	i = 0;
-	str = s;
-	while (i < n)
+	string = str;
+	while ( i < n)
 	{
-		str[i] = c;
+		if (string[i] == c)
+			return ((char *)&string[i]);
 		i++;
 	}
-	return (s);
+	return (0);
 }
 
- int main()
- {
- 	char str[] = "hallooooooooooo";
- 	char rep = '3';
- 	size_t size = 15;
- 	ft_memset(str,rep,size);
-	printf("%s",str);
- 	return (0);
-}
+// int main()
+// {
+// 	char str[] = "hello";
+// 	char c = 'o';
+// 	int size = 4;
+// 	printf("%s\n",ft_memchr(str,c,size));
+// 	printf("%s",memchr(str,c,size));
+// 	return (0);
+// }
