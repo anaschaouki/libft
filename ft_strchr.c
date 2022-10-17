@@ -13,10 +13,10 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (i != ft_strlen(str) + 1)
 	{
 		if (str[i] == c)
 			return ((char *)&str[i]);
@@ -31,9 +31,9 @@ char	*ft_strchr(const char *str, int c)
 }
 // int main()
 // {
-// 	char string[] = "";
-// 	char s = 'e';
+// 	char string[] = "there is so \0ma\0ny \0 \\0 in t\0his stri\0ng !\0\0\0\0";
+// 	char s = '\0';
 // 	printf("%s\n",ft_strchr(string,s));
 // 	printf("%s",strchr(string,s));
 // 	return (0);
-// }
+//  }

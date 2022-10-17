@@ -12,21 +12,25 @@
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+static int	holditmister(size_t res, int sign)
 {
-	write (1, &c, 1);
+	if (res > 9223372036854775807 && sign == 1)
+		return (-1);
+	if (res > 9223372036854775807 && sign == -1)
+		return (0);
+	return (0);
 }
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	result;
+	size_t	i;
+	size_t	result;
 	int	sign;
 
 	i = 0;
 	result = 0;
 	sign = 1;
-	while (str[i] == ' ')
+	while (str[i] == 32 ||(str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
 	{
@@ -40,11 +44,16 @@ int	ft_atoi(char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
+	if(result > 9223372036854775807)
+	{
+		return (holditmister(result,sign));
+	}
 	return (result * sign);
 }
 
-// int main()
-// {
-// 	char string[] = "   -123abs3";
-// 	printf("%d___%d",ft_atoi(string),atoi(string));
-// }
+//    int main()
+//     {
+//   	char string[] = "-99999999999999999999999999";
+//    	printf("%d\n",ft_atoi(string));
+//    	printf("%d",atoi(string));
+//     }

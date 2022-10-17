@@ -9,52 +9,43 @@
 /*   Updated: 2022/10/11 15:50:54 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 #include <string.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	len;
-	size_t	len1;
+	size_t	slen;
 
 	i = 0;
-	len = ft_strlen(dst);
-	len1 = ft_strlen(dst);
-	while (src[i] != '\0' && i < size)
+	len = ft_strlen(dst) +1;
+	slen = ft_strlen(src);
+	if (size == 0 ||size == '\0' || size < len)
+		return (slen + size);
+	if (dst == '\0')
+		return (slen);
+	while (i < size )
 	{
 		dst[len] = src[i];
 		len++;
 		i++;
 	}
 	dst[len] = '\0';
-	return (len1 + i);
+	return (slen + ft_strlen(dst));
 }
-/*int main()
+
+int main()
 {
-	char string1[] = "hello";
-	char string2[] = "world";
-	int size = 2;
-	ft_strlcat(string1, string2, size);
+	// my func
+	char string1[] = "there is no stars in the sky";
+	char string2[] = "";
+	int size = '\0';
 	printf("%zu\n",ft_strlcat(string1, string2, size));
-	printf("%s\n",string1);
-	char string3[] = "hello";
-    char string4[] = "world";
-	len--;
-	int size1 = 2;
+	// their func
+    char string3[] = "there is no stars in the sky";
+	char string4[] = "";
+	int size1 = '\0';
 	printf("%zu\n",strlcat(string3, string4, size1));
-	printf("%s",string3);
 }
-*/
+

@@ -12,22 +12,6 @@
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
-{
-	size_t	i;
-	char	*str;
-	int		null;
-
-	i = 0;
-	str = (char *)s;
-	null = '\0';
-	while (i < n)
-	{
-		str[i] = null;
-		i++;
-	}
-}
-
 void	*ft_calloc(size_t num, size_t size)
 {
 	size_t	i;
@@ -35,6 +19,8 @@ void	*ft_calloc(size_t num, size_t size)
 
 	i = 0;
 	ptr = malloc(num * size);
+	if (!ptr)
+		return (0);
 	ft_bzero(ptr, num);
 	return (ptr);
 }

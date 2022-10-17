@@ -13,12 +13,14 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
+	if (!n)
+		return(0);
 	size_t		i;
 	const char	*string;
 
 	i = 0;
 	string = str;
-	while (string[i] != '\0' && c != '\0' && i < n)
+	while ( i < n)
 	{
 		if (string[i] == c)
 			return ((char *)&string[i]);

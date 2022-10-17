@@ -10,26 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "libft.h"*/
-#include <stdio.h>
-#include <string.h>
-
-size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
+// #include <string.h>
 
 char	*ft_strrchr(const char *string, int c)
 {
 	int	i;
 
-	i = ft_strlen(string) - 1;
-	while (string[i] > 0)
+	i = ft_strlen(string);
+	while (i >= 0)
 	{
 		if (string[i] == c)
 		{
@@ -37,18 +26,15 @@ char	*ft_strrchr(const char *string, int c)
 		}
 		i--;
 	}
-	if (c == '\0')
-	{
-		string = "\0";
-		return ((char *)string);
-	}
+	if (string[i] == 0 && string[i] != c)
+		return (0);
 	return (0);
 }
-int main()
-{
-	char string[] = "helleoo";
-	char s = 'e';
-	printf("%s\n",ft_strrchr(string,s));
-	printf("%s",strrchr(string,s));
-	return (0);
-}
+//  int main()
+//  {
+//  	char string[] = "the cake is a lie !\0I'm hidden lol\r\n";
+//  	char s = ' ';
+//  	printf("%s\n",ft_strrchr(string,s));
+//  	printf("%s",strrchr(string,s));
+//  	return (0);
+//  }

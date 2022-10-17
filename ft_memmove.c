@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void *ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -24,7 +23,7 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 	src1 = src;
 	dest1 = dest;
     temp = "";	
-	temp = memcpy(temp,src1,n);
+	temp = ft_memcpy(temp,src1,n);
 	while (i < n)
 	{
 		dest1[n - 1] = temp[n - 1];
@@ -35,17 +34,11 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-int main()
-{
-	char *str = "hello";
-	char dest[] = "";
-	int len = 3;
-	ft_memmove(dest,str,len);
-	printf("%s",dest);
-	char *str1 = "hello";
-	char dest1[] = "";
-	int len1 = 3;
-	memmove(dest1,str1,len1);
-	printf("%s",dest1);
-	return (0);
-}
+// int main()
+// {
+// 	char *str = "hello";
+// 	char dest[] = "";
+// 	int len = 3;
+// 	ft_memmove(dest,str,len);
+// 	return (0);
+// }

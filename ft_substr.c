@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -23,6 +21,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	str = &s[start];
 	ptr = (char *)malloc(len *sizeof(char) + 1);
+	if (!ptr)
+		return (0);
 	while (i < len)
 	{
 		ptr[i] = str[i];
