@@ -14,26 +14,31 @@
 
 void *ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t i;
-	const char *src1;
-	char *dest1;
-	char *temp;
+   size_t        i;
+    char        *desta;
 
-	i = 0;
-	src1 = src;
-	dest1 = dest;
-    temp = "";	
-	temp = ft_memcpy(temp,src1,n);
-	while (i < n)
-	{
-		dest1[n - 1] = temp[n - 1];
-		i++;
-		n--;
-	}
-	dest1[i] = '\0';
-	return (dest);
+    i = 0;
+    desta = dest;
+    if (!dest && !src)
+        return (0);
+    while (i <= n)
+    {
+        ((char *)dest)[n] = ((char *)src)[n];
+		if (n == 0)
+			return ((char *)dest);
+        n--;
+    }
+    return ((char *)dest);
 }
 
+// int main()
+// {
+//     char *str = "this is a good nyancat !\r\n";
+//     char dest[0xF0];
+//     int len = ft_strlen(str);
+//     printf("%s",ft_memmove(dest,str,len));
+//     return (0);
+// }
 // int main()
 // {
 // 	char *str = "hello";

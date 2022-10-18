@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+// #include <string.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -20,21 +21,29 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	srca = src;
 	desta = dest;
+	if (!dest && !src)
+		return (0);
 	while (i < n)
 	{
-		desta[i] = srca[i];
+		((char *)dest)[i] = ((char *)src)[i];
 		i++;
 	}
-	desta[i] = '\0';
-	return (dest);
+	return ((char *)dest);
 }
 
 // int main()
 // {
-// 	char src[] = "hello";
-// 	char dest[] = "";
-// 	int size = 5;
+// 	char src[] = "test basic du memcpy !";
+// 	char dest[22];
+// 	int size = 22;
 // 	ft_memcpy(dest,src,size);
-// 	printf("%s",dest);
+// 	printf(";%s;\n",dest);
+
+// 	// oooooooooooo
+// 	char src1[] = "test basic du memcpy !";
+// 	char dest1[22];
+// 	int size1 = 22;
+// 	memcpy(dest1,src1,size1);
+// 	printf(";%s;",dest1);
 // 	return (0);
 // }

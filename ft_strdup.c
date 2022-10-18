@@ -11,35 +11,32 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <string.h>
 
-char	*ft_strdup(const char *s, size_t n)
+char	*ft_strdup(const char *s)
 {
-	const char		*str;
+	size_t			n;
 	size_t			i;
-	char			*dest;
-	char			*memal;
+	char			*dst;
 
-	str = s;
+	n = ft_strlen(s);
 	i = 0;
-	dest = "";
-	memal = (char *)malloc(n * sizeof(char) + 1);
-	if (memal == NULL)
+	dst = (char *)malloc(n * sizeof(char) + 1);
+	if (!dst)
 		return (0);
 	while (i < n)
 	{
-		memal[i] = str[i];
+		dst[i] = s[i];
 		i++;
 	}
-	memal[i] = '\0';
-	return ((char *)memal);
+	dst[i] = '\0';
+	return (dst);
 }
 // int main()
 // {
-// 	char str[] = "hello";
-// 	int size = 7;
-// 	printf("%s\n",ft_strdup(str,size));
-// 	char str1[] = "hello";
-// 	int size1 = 7;
-// 	printf("%s",ft_strdup(str1,size1));
+// 	char str[] = "I malloc so I am.";
+// 	printf("%s\n",ft_strdup(str));
+// 	char str1[] = "I malloc so I am.";
+// 	printf("%s",strdup(str1));
 // 	return (0);
 // }

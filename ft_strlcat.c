@@ -10,42 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <string.h>
+// #include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	len;
 	size_t	slen;
+	size_t	len;
+	size_t	dslen;
 
 	i = 0;
-	len = ft_strlen(dst) +1;
 	slen = ft_strlen(src);
-	if (size == 0 ||size == '\0' || size < len)
-		return (slen + size);
-	if (dst == '\0')
+	if (!dst && size == 0)
 		return (slen);
-	while (i < size )
+	len = ft_strlen(dst);
+	dslen = ft_strlen(src) + ft_strlen(dst);
+	if (size == 0 || size < len)
+		return (slen + size);
+	while (len < size - 1)
 	{
 		dst[len] = src[i];
 		len++;
 		i++;
 	}
 	dst[len] = '\0';
-	return (slen + ft_strlen(dst));
+	return (dslen);
 }
 
-int main()
-{
-	// my func
-	char string1[] = "there is no stars in the sky";
-	char string2[] = "";
-	int size = '\0';
-	printf("%zu\n",ft_strlcat(string1, string2, size));
-	// their func
-    char string3[] = "there is no stars in the sky";
-	char string4[] = "";
-	int size1 = '\0';
-	printf("%zu\n",strlcat(string3, string4, size1));
-}
+// int main()
+// {
+// 	 char str[0xF] = "nyan !";
+//     // char buff2[] = ;
+//     printf("%zu\n", ft_strlcat((void *)0, str, 0));
+// }
 
