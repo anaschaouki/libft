@@ -43,4 +43,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 //     // char buff2[] = ;
 //     printf("%zu\n", ft_strlcat((void *)0, str, 0));
 // }
-

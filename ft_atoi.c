@@ -25,12 +25,12 @@ int	ft_atoi(char *str)
 {
 	size_t	i;
 	size_t	result;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	result = 0;
 	sign = 1;
-	while (str[i] == 32 ||(str[i] >= 9 && str[i] <= 13))
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
 	{
@@ -44,10 +44,8 @@ int	ft_atoi(char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if(result > 9223372036854775807)
-	{
-		return (holditmister(result,sign));
-	}
+	if (result > 9223372036854775807)
+		return (holditmister(result, sign));
 	return (result * sign);
 }
 
