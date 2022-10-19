@@ -11,26 +11,48 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <string.h>
 
 void *ft_memmove(void *dest, const void *src, size_t n)
 {
-   size_t        i;
     char        *desta;
-
-    i = 0;
     desta = dest;
     if (!dest && !src)
         return (0);
-    while (i <= n)
+    if (n == 0)
+		return ((char *)dest);
+    if (dest > src)
     {
-        ((char *)dest)[n] = ((char *)src)[n];
-		if (n == 0)
-			return ((char *)dest);
-        n--;
+        while (n > 0)
+        {
+            ((char *) dest)[n - 1] = ((char *)src)[n -1];
+            n--;
+
+        }
     }
+    else
+        ft_memcpy(dest, src, n);
+    
     return ((char *)dest);
 }
 
+// int main()
+// {
+//     char dst1[0xF0];
+//     char *data = "thiß ß\xde\xad\xbe\xeftriñg will be øvérlapéd !\r\n";
+//     // int size = 0xF0 - 0xF;
+
+//     printf ("|%s|", ft_memmove(dst1, data, strlen(data)));
+// }
+// int main()
+// {
+//     // char *src = "thanks to @apellicc for this test !\r\n";
+// 	// char dst1[0xF0];
+// 	// int size = ft_strlen(src);
+//     // memmove(dst1, src, size);
+//     // ft_memmove("", "" - 1, 0);
+//     printf ("|%s|", memmove("", "" - 1, 0));
+// }
 // int main()
 // {
 //     char *str = "this is a good nyancat !\r\n";
