@@ -14,6 +14,7 @@
 
 static int	holditmister(size_t res, int sign)
 {
+	size_t res1 = res;
 	if (res > 9223372036854775807 && sign == 1)
 		return (-1);
 	if (res > 9223372036854775807 && sign == -1)
@@ -48,10 +49,9 @@ int	ft_atoi(char *str)
 		return (holditmister(result, sign));
 	return (result * sign);
 }
-
 //    int main()
 //     {
-//   	char string[] = "-99999999999999999999999999";
+//   	char string[] = "-999999999999999999999999998888888888888888888888";
 //    	printf("%d\n",ft_atoi(string));
 //    	printf("%d",atoi(string));
 //     }

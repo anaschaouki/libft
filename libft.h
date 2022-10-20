@@ -11,12 +11,18 @@
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <ctype.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_putchar_fd(char c, int fd);
@@ -49,5 +55,6 @@ int		ft_isalpha(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+t_list  *ft_lstnew(void *content);
 
 #endif

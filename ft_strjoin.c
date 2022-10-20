@@ -14,41 +14,31 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (!s1 || !s2)
-	return (0);
-	size_t i;
-	size_t j;
-	size_t len1;
-	size_t len2;
-	size_t lenres;
-	char *alloc;
+	size_t	i;
+	size_t	lenres;
+	char	*alloc;
 
+	if (!s1 || !s2)
+		return (0);
 	i = 0;
-	j = 0;
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	lenres = len1 + len2;
-	alloc = (char *)malloc(lenres *sizeof(char)+ 1);
-	if(alloc == NULL)
-	return (0);
-	while (i < lenres  && s1[i] != '\0')
+	lenres = ft_strlen(s1);
+	alloc = (char *)malloc(sizeof(char) * (lenres + ft_strlen(s2) + 1));
+	if (!alloc)
+		return (0);
+	while (i < lenres && s1[i] != '\0')
 	{
 		alloc[i] = s1[i];
 		i++;
 	}
-	if (i < lenres && s2[j] != '\0')
+	i = 0;
+	while (i < lenres && s2[i] != '\0')
 	{
-		while (i < lenres && s2[j] != '\0')
-		{
-			alloc[i] = s2[j];
+			alloc[lenres] = s2[i];
+			lenres++;
 			i++;
-			j++;
-		}
 	}
-
-	alloc[i] = '\0';
+	alloc[lenres] = '\0';
 	return (alloc);
-
 }
 
 // int main()
