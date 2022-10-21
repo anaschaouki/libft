@@ -15,8 +15,10 @@ t_list  *ft_lstnew(void *content)
 // int main ()
 // {
 //     t_list *head;
-//     int pn = 34;
-//     // int *p = &pn;
-//     head = ft_lstnew(&pn);
-//     printf("%p", head);
+//     // int pn = 34;
+//     // void *pp = &pn;
+//     head = ft_lstnew("44");
+//     printf("%s\n", head->content);
+//     // printf("%d\n", pn);
+//     // printf("%p", &pn);
 // }

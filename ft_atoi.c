@@ -14,7 +14,6 @@
 
 static int	holditmister(size_t res, int sign)
 {
-	size_t res1 = res;
 	if (res > 9223372036854775807 && sign == 1)
 		return (-1);
 	if (res > 9223372036854775807 && sign == -1)
