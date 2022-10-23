@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	lenres;
 	char	*alloc;
 
-	if (!s1 || !s2)
+	if (!s2)
 		return (0);
 	i = 0;
 	lenres = ft_strlen(s1);
@@ -31,7 +31,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	i = 0;
-	while (i < lenres && s2[i] != '\0')
+	while (i <= lenres && s2[i] != '\0')
 	{
 			alloc[lenres] = s2[i];
 			lenres++;
@@ -43,7 +43,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 // int main()
 // {
-// 	char str1[] = "hello";
+// 	char str1[] = "";
 // 	char str2[] = "world";
 // 	printf("%s",ft_strjoin(str1,str2));
 // 	return (0);

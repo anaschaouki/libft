@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 19:10:41 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:39:29 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/23 20:26:58 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/23 20:27:01 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-#include <string.h>
+
 char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	checkfirst(char const *string, char const *set)
+static size_t	checkfirst(char const *string, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -32,7 +32,7 @@ size_t	checkfirst(char const *string, char const *set)
 	return (i);
 }
 
-size_t	checklast(char const *string, char const *set)
+static size_t	checklast(char const *string, char const *set)
 {
 	size_t	j;
 	int		slen;
