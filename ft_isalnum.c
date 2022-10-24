@@ -21,9 +21,3 @@ int	ft_isalnum(unsigned char c)
 	else
 		return (0);
 }
-// int main()
-// {
-// 	unsigned char s = 'Ÿ';
-// 	printf("%d___%d",ft_isalnum(s),isalnum(s));
-// 	return (0);
-// }

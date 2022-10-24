@@ -40,11 +40,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	alloc[lenres] = '\0';
 	return (alloc);
 }
-
-// int main()
-// {
-// 	char str1[] = "";
-// 	char str2[] = "world";
-// 	printf("%s",ft_strjoin(str1,str2));
-// 	return (0);
-// }

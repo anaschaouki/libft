@@ -11,13 +11,6 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-// char	func(unsigned int i, char c)
-// {
-// 	(void)i;
-// 	c = 'e';
-// 	return (c);
-// }
-
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
@@ -37,11 +30,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-
-// int main()
-// {
-// 	char *str = "hallo world";
-// 	ft_strmapi(str, func);
-// 	printf("%s", ft_strmapi(str, func));
-// 	return (0);
-// }

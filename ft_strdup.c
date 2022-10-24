@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <string.h>
 
 char	*ft_strdup(const char *s)
 {
@@ -32,11 +31,3 @@ char	*ft_strdup(const char *s)
 	dst[i] = '\0';
 	return (dst);
 }
-// int main()
-// {
-// 	char str[] = "I malloc so I am.";
-// 	printf("%s\n",ft_strdup(str));
-// 	char str1[] = "I malloc so I am.";
-// 	printf("%s",strdup(str1));
-// 	return (0);
-// }

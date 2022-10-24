@@ -14,14 +14,16 @@
 
 static char	*protect(char const *s, unsigned int start)
 {
-	char *ptr;
+	char	*ptr;
+
 	ptr = NULL;
 	if (start > ft_strlen(s))
 	{
 		ptr = ft_calloc(1, 1);
 	}
-	return(ptr);
+	return (ptr);
 }
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t		i;
@@ -32,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (0);
 	if (start > ft_strlen(s))
-		return(protect(s, start));
+		return (protect(s, start));
 	if (len > (ft_strlen(s) - start))
 		len = ft_strlen(s) - start;
 	str = &s[start];
@@ -47,12 +49,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-// int	main(void)
-// {
-// 	char	*str = ;
-// 	int n = 42;
-// 	int l =  42000000;
-// 	printf("|%s|",ft_substr(str,n,l));
-// 	return (0);
-// }

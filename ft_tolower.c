@@ -18,10 +18,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-
-/*int main()
-{
-	char s = 'x';
-	printf("%c___%c",ft_tolower(s),tolower(s));
-	return (0);
-}*/

@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 11:44:50 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:55:35 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/23 18:58:16 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/23 18:58:19 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	size_t	j;
+	t_list	*ptr;
 
-	i = 0;
-	j = 0;
-	if (needle[j] == '\0')
-		return ((char *)haystack);
-	if (haystack == 0 && len == 0)
+	if (!lst)
 		return (0);
-	while (haystack[i] != '\0' && i < len)
-	{
-		while ((haystack[i + j] == needle[j]
-				&& needle[j] != '\0' && i + j < len))
-			j++;
-		if (needle[j] == '\0')
-			return ((char *)&haystack[i]);
-		j = 0;
-		i++;
-	}
-	return (0);
+	ptr = lst;
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+	return (ptr);
 }

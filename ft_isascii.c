@@ -18,10 +18,3 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
-
-// int main()
-// {
-// 	char s = '	';
-// 	printf("%d___%d",ft_isascii(s),isascii(s));
-// 	return (0);
-// }

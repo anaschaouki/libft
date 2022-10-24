@@ -22,19 +22,9 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	string = str;
 	while (i < n)
 	{
-		if (string[i] == c)
+		if (string[i] == (unsigned char)c)
 			return ((char *)&string[i]);
 		i++;
 	}
 	return (0);
 }
-
-// int main()
-// {
-// 	char str[] = "hello";
-// 	char c = 'o';
-// 	int size = 4;
-// 	printf("%s\n",ft_memchr(str,c,size));
-// 	printf("%s",memchr(str,c,size));
-// 	return (0);
-// }

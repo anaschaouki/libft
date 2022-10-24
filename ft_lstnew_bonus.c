@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 11:44:50 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:55:35 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/23 20:24:15 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/23 20:24:18 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	j;
+	t_list	*new;
 
-	i = 0;
-	j = 0;
-	if (needle[j] == '\0')
-		return ((char *)haystack);
-	if (haystack == 0 && len == 0)
+	new = malloc(sizeof(t_list));
+	if (!new)
 		return (0);
-	while (haystack[i] != '\0' && i < len)
-	{
-		while ((haystack[i + j] == needle[j]
-				&& needle[j] != '\0' && i + j < len))
-			j++;
-		if (needle[j] == '\0')
-			return ((char *)&haystack[i]);
-		j = 0;
-		i++;
-	}
-	return (0);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchaouk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anchaouk <anchaouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 13:08:37 by anchaouk          #+#    #+#             */
-/*   Updated: 2022/10/11 15:28:23 by anchaouk         ###   ########.fr       */
+/*   Created: 2022/10/23 18:51:20 by anchaouk          #+#    #+#             */
+/*   Updated: 2022/10/23 18:55:30 by anchaouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (c >= 32 && c < 127)
-		return (1);
-	return (0);
+	t_list	*ptr;
+
+	ptr = *lst;
+	if (!ptr)
+		*lst = new;
+	else
+	{
+		ptr = ft_lstlast(ptr);
+		ptr->next = new;
+	}
 }

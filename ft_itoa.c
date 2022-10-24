@@ -64,10 +64,3 @@ char	*ft_itoa(int n)
 	str = convert((long)n, len);
 	return (str);
 }
-
-// int main()
-// {
-//         int num = -632;
-//         printf(";%s;",ft_itoa(num));
-//         return (0);
-// }

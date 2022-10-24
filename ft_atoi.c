@@ -47,9 +47,3 @@ int	ft_atoi(const char *str)
 		return (holditmister(result, sign));
 	return (result * sign);
 }
-//    int main()
-//     {
-//   	char string[] = "-999999999999999999999999998888888888888888888888";
-//    	printf("%d\n",ft_atoi(string));
-//    	printf("%d",atoi(string));
-//     }

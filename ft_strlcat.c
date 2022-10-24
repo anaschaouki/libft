@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-// #include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -36,10 +35,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[len] = '\0';
 	return (dslen);
 }
-
-// int main()
-// {
-// 	 char str[0xF] = "nyan !";
-//     // char buff2[] = ;
-//     printf("%zu\n", ft_strlcat((void *)0, str, 0));
-// }

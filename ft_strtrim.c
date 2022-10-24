@@ -80,11 +80,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	alloc[o] = '\0';
 	return (alloc);
 }
-// int main()
-// {
-//   char *s1 = "  \t \t \n   \n\n\n\t";
-//     // char *s2 = "H  Trim me !";
-//     char *ret = ft_strtrim(s1, " \n\t");
-//     printf("|%s|",ret);
-//     return(0);
-// }

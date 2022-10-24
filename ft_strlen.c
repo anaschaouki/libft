@@ -20,9 +20,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-/* int main()
-{
- 	char string[] = "helloooooooooooooooooooooooooooooooooooooooo";
- 	 	printf("%zu__%zu",ft_strlen(string),strlen(string));
- 	return (0);
-}*/

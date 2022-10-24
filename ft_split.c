@@ -88,12 +88,3 @@ char	**ft_split(char const *s, char c)
 	res = elgatto(s, c, array, start);
 	return (res);
 }
-
-//  int main()
-//  {
-//      char *str = " hello mate ";
-//      char c = ' ';
-//  	char **array = ft_split(str, c);
-//      printf("%s\n%s\n%s", array[0], array[1], array[2]);
-//      return (0);
-//  }
