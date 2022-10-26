@@ -16,14 +16,24 @@ static int	count(char const *s, char c)
 {
 	int	i;
 	int	count;
+	int	op;
 
 	i = 0;
 	count = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] != c && s[i - 1] == c)
-			count++;
+		op = 1;
+		while (s[i] == c && s[i])
+			i++;
+		while (s[i] != c && s[i])
+		{
+			if (op == 1)
+			{
+				count++;
+				op = 0;
+			}
 		i++;
+		}
 	}
 	return (count);
 }

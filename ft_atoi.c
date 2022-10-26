@@ -12,15 +12,6 @@
 
 #include "libft.h"
 
-static int	holditmister(size_t res, int sign)
-{
-	if (res > 9223372036854775807 && sign == 1)
-		return (-1);
-	if (res > 9223372036854775807 && sign == -1)
-		return (0);
-	return (0);
-}
-
 int	ft_atoi(const char *str)
 {
 	size_t	i;
@@ -43,7 +34,5 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if (result > 9223372036854775807)
-		return (holditmister(result, sign));
 	return (result * sign);
 }

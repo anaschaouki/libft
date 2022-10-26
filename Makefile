@@ -7,7 +7,7 @@ SRCS :=		ft_isalpha.c ft_memcmp.c  ft_putendl_fd.c ft_strdup.c ft_strlen.c ft_st
 OBJ := $(SRCS:.c=.o)
 
 BONUS :=	ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstadd_back_bonus.c ft_lstnew_bonus.c \
-		ft_lstadd_front_bonus.c ft_lstsize_bonus.c
+		ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstclear_bonus.c ft_lstmap_bonus.c
 
 CC :=	cc
 FLAGS := -Wall -Wextra -Werror
