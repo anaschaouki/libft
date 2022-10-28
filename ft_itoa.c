@@ -39,7 +39,7 @@ static char	*convert(long n, int len)
 	alloc = (char *)malloc(sizeof(char) * len + 1);
 	if (!alloc)
 		return (0);
-		alloc[len] = '\0';
+	alloc[len] = '\0';
 	if (n < 0)
 	{
 			n *= -1;
@@ -60,7 +60,7 @@ char	*ft_itoa(int n)
 	size_t	len;
 	char	*str;
 
-	len = length(n);
+	len = length((long)n);
 	str = convert((long)n, len);
 	return (str);
 }

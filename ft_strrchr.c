@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <string.h>
 
 char	*ft_strrchr(const char *string, int c)
 {
@@ -20,21 +19,11 @@ char	*ft_strrchr(const char *string, int c)
 	i = ft_strlen(string);
 	while (i >= 0)
 	{
-		if (string[i] == (unsigned char)c)
+		if (string[i] == (char)c)
 		{
 			return ((char *)&string[i]);
 		}
 		i--;
 	}
-	if (string[i] == 0 && string[i] != c)
-		return (0);
 	return (0);
 }
-//  int main()
-//  {
-//  	char string[] = "the cake is a lie !\0I'm hidden lol\r\n";
-//  	char s = ' ';
-//  	printf("%s\n",ft_strrchr(string,s));
-//  	printf("%s",strrchr(string,s));
-//  	return (0);
-//  }

@@ -9,22 +9,25 @@ OBJ := $(SRCS:.c=.o)
 BONUS :=	ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstadd_back_bonus.c ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstclear_bonus.c ft_lstmap_bonus.c
 
+BONUSOBJ := $(BONUS:.c=.o)
+
 CC :=	cc
 FLAGS := -Wall -Wextra -Werror
+
 
 NAME := libft.a
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-
-BONUSOBJ := $(BONUS:.c=.o)
-
-bonus : $(NAME) $(BONUSOBJ)
-	ar rcs $(NAME) $(BONUSOBJ)
+	ar rc $(NAME) $(OBJ)
 
 
+bonus : $(BONUSOBJ) $(NAME)
+	ar rc $(NAME) $(BONUSOBJ)
+
+%.o : %.c libft.h
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJ) $(BONUSOBJ)

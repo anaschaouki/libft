@@ -62,7 +62,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*alloc;
 
 	o = 0;
-	if (!s1)
+	if (!s1 || !set)
 		return (0);
 	i = checkfirst(s1, set);
 	slen = checklast(s1, set);
