@@ -1,4 +1,7 @@
 # Libft
+
+<img src="libftcat.gif">
+
 created my own c library that consists of some recoded built in functions and some functions i created 
 # Summary
 . This project is about coding a C library.
